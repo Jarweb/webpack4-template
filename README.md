@@ -1,15 +1,17 @@
-### 使用
+## webpack 4+ tpl, 适用于spa
 
-## webpack 4+ tpl
-- spa
+
+## 一键配置
 - webpack-bundle-analyzer
 - size-plugin
 - thread-loader
 - happypack
 - hard-source-webpack-plugin
 - autodll-webpack-plugin
+- postcss
 
 
+## usage
 ```code
 $ npm install
 $ npm run dev

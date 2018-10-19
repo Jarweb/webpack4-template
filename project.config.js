@@ -82,7 +82,7 @@ module.exports =  {
                 "modules": false,
             }],
             'stage-0',
-            'react', 
+            // 'react', 
         ],
         plugins: [
             'transform-runtime', 
