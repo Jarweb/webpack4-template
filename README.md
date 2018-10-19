@@ -3,7 +3,6 @@
 
 ## 一键配置
 - webpack-bundle-analyzer
-- size-plugin
 - thread-loader
 - happypack
 - hard-source-webpack-plugin
