@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="yes" name="apple-touch-fullscreen" />
+    <meta content="telephone=no,email=no" name="format-detection" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0">
+    <link rel="icon" href="//m.lizhi.fm/assets/images/7e999851b414e3618f538e52561987a9-favicon.ico?y=2018" type="image/x-icon">
+
+    <% for(var _head_dns in htmlWebpackPlugin.options.htmlHeadPreLink.dnsprefetch) { %>
+      <link rel="dns-prefetch" href="<%=htmlWebpackPlugin.options.htmlHeadPreLink.dnsprefetch[_head_dns]%>">
+    <% } %>
+    <% for(var _head_preconnect in htmlWebpackPlugin.options.htmlHeadPreLink.preconnect) { %>
+      <link rel="preconnect" href="<%=htmlWebpackPlugin.options.htmlHeadPreLink.preconnect[_head_preconnect]%>">
+    <% } %>
+
+    <script>
+      if(/Android (\d+\.\d+)/.test(navigator.userAgent)){if(parseFloat(RegExp.$1)>2.3){var phoneScale=parseInt(window.screen.width)/375;document.write('<meta name="viewport" content="width=375, minimum-scale = '+phoneScale+", maximum-scale = "+phoneScale+'">')}else document.write('<meta name="viewport" content="width=375">')}else document.write('<meta name="viewport" content="width=375, user-scalable=no">')
+    </script>
+    
+    <title> <%= htmlWebpackPlugin.options.title %> </title>
+    <meta name="description" content="<%= htmlWebpackPlugin.options.htmlHeadMeta.desc%>" />
+    <meta name="keyword" content="<%= htmlWebpackPlugin.options.htmlHeadMeta.keyword%>" />
+  </head>
+  <body>
+    <div id="app"></div>
+  </body>
+</html>
