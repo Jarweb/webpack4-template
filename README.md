@@ -3,7 +3,6 @@
 ## webpack 4+ tpl
 - spa
 - webpack-bundle-analyzer
-- size-plugin
 - thread-loader
 - happypack
 - hard-source-webpack-plugin
