@@ -424,7 +424,7 @@ if(config.useBundleAnalyzer) {
     basePlugins.push(new BundleAnalyzerPlugin())
 }
 
-if(config.useHardSource) {
+if (process.env.NODE_ENV === 'development' && config.useHardSource) {
     basePlugins.push(
         new HardSourceWebpackPlugin({
             cacheDirectory: 'node_modules/.cache/hard-source/[confighash]',
@@ -436,6 +436,15 @@ if(config.useHardSource) {
                 root: process.cwd(),
                 directories: [],
                 files: ['package-lock.json'],
+            },
+            cachePrune: {
+                // Caches younger than `maxAge` are not considered for deletion. They must
+                // be at least this (default: 2 days) old in milliseconds.
+                maxAge: 1 * 24 * 60 * 60 * 1000,
+                // All caches together must be larger than `sizeThreshold` before any
+                // caches will be deleted. Together they must be at least this
+                // (default: 50 MB) big in bytes.
+                sizeThreshold: 50 * 1024 * 1024
             },
         })
     )
