@@ -139,7 +139,6 @@ const webpackOpts = {
         ...config.devServer,
         historyApiFallback: true,
         compress: true,
-        // noInfo: true,
         quiet: false,
         contentBase: path.join(__dirname, 'dist'),
     },
@@ -201,7 +200,6 @@ const webpackOpts = {
                         loader: 'babel-loader',
                         options: {
                             cacheDirectory: true,
-                            ...config.babelOptions
                         }
                     }
                 ].filter((item) => item !== null)
@@ -412,7 +410,6 @@ if(isProd) {
         // 提取manifest.json runtime里变化的部分一般是这个部分 
         new ManifestPlugin(),
         new ImageminPlugin({
-            // disable: process.env.NODE_ENV !== 'production',
             pngquant: {
               quality: '80-100'
             }
@@ -420,7 +417,8 @@ if(isProd) {
     )
 }
 
-if(config.useBundleAnalyzer) {
+// npm run dev --analyze
+if (process.env.npm_config_analyze) {
     basePlugins.push(new BundleAnalyzerPlugin())
 }
 
@@ -453,7 +451,7 @@ if (process.env.NODE_ENV === 'development' && config.useHardSource) {
 if(config.useAutoDll) {
     basePlugins.push(
         new AutoDllPlugin({
-            context: path.join(__dirname, '...'),
+            context: path.join(__dirname, '../'),
             inject: true,
             filename: '[name].dll.js',
             entry: config.entry.vendor

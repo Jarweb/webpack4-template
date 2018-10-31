@@ -60,48 +60,6 @@ module.exports =  {
         // ],
     },
 
-    babelOptions: {
-        presets: [
-            ['env', {
-                'targets': {
-                    'browsers': [
-                        // babel 7 可以直接写在package.json里
-                        // 顺序不一样，结果不一样 cover 93.31%
-                        // http://browserl.ist/?q=
-                        'last 4 versions',
-                        '> 0.2%',
-                        'Firefox ESR',
-                        'iOS >= 8',
-                        'Android >= 4.1',
-                        'not ie <= 8'
-                    ]
-                },
-                'debug': false,
-                'include': [],
-                'useBuiltIns': true,
-                "modules": false,
-            }],
-            'stage-0',
-            // 'react', 
-        ],
-        plugins: [
-            'transform-runtime', 
-            "transform-decorators-legacy",
-
-            // preact 设置
-            // ["transform-react-jsx", { "pragma":"h" }],
-
-            // react 优化
-            // "transform-react-constant-elements",  
-            // "transform-react-inline-elements",
-            // "transform-node-env-inline",
-
-            // antd-mobile 设置
-            // ['import', { libraryName: 'antd-mobile', style: 'css' }]
-        ]
-    },
-
-    useBundleAnalyzer: false,
     // happypack 于 thread-loader 不要一起用，线程争夺
     useHappyPack: true, 
     // 目前用于非生产环境
