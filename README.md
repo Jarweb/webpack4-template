@@ -21,8 +21,6 @@ $ npm run prod
 ## 修改配置
 ```code
     // ...
-
-    useBundleAnalyzer: false,
     // happypack 于 thread-loader 不要一起用，线程争夺
     useHappyPack: true, 
     // 目前用于非生产环境
